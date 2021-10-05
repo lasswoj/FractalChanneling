@@ -32,7 +32,8 @@ impl ActionsTr for CMDActions{
             line = String::new();
             let _=stdout().flush();
             let len = stdin().read_line(&mut line).expect("Did not enter a correct string");
-            action = match Self::from_str(&line[0..len-1]){
+            let v = line[0..len-1].split(" ").collect::<Vec<&str>>(); 
+            action = match Self::from_str(v[0]){
                     Ok(ac) => ac,
                     Err(_) => CMDActions::Actions(Actions::Wrong)
             };
@@ -40,14 +41,15 @@ impl ActionsTr for CMDActions{
         return action;
     }
     fn get_action() -> CMDActions{
-                print!("provide action\n");
-                let mut line = String::new();
-                let _=stdout().flush();
-                let len = stdin().read_line(&mut line).expect("Did not enter a correct string");
-                let mut action = match Self::from_str(&line[0..len-1]){
-                        Ok(ac) => ac,
-                        Err(_) => Self::try_again(line)
-                };
-                return  action;
-            }
+            print!("provide action\n");
+            let mut line = String::new();
+            let _=stdout().flush();
+            let len = stdin().read_line(&mut line).expect("Did not enter a correct string");
+            let v = line[0..len-1].split(" ").collect::<Vec<&str>>(); 
+            let mut action = match Self::from_str(v[0]){
+                Ok(ac) => ac,
+                Err(_) => Self::try_again(line)
+            };
+            return  action;
         }
+    }

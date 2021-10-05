@@ -1,2 +1,14 @@
 /target
 .vscode/launch.json
+docs/MasTODOnt.aux
+docs/MasTODOnt.bbl
+docs/MasTODOnt.blg
+docs/MasTODOnt.fdb_latexmk
+docs/MasTODOnt.pdf
+docs/MasTODOnt.toc
+docs/MasTODOnt.fls
+docs/MasTODOnt.lof
+docs/MasTODOnt.log
+docs/MasTODOnt.lot
+docs/MasTODOnt.out
+docs/MasTODOnt.synctex.gz

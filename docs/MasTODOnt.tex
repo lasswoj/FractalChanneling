@@ -1,0 +1,568 @@
+\documentclass[12pt,a4paper,twoside]{article}
+% \usepackage[utf8]{inputenc}
+
+
+% \usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{kpfonts}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+%diagrams
+\usepackage{tikz}
+\usepackage{changepage}
+\usetikzlibrary{arrows.meta}
+%table width
+\usepackage{tabularx}
+
+\usepackage{titlesec}
+\usepackage{etoc}
+\usepackage{xcolor}
+% rotate
+\usepackage{rotating}
+%kolory
+%\usepackage[dvipsnames]{xcolor}
+
+%tabele
+\usepackage{multirow}
+\usepackage{booktabs}
+
+%calculations
+\usepackage{pgf}
+%diagrams
+\usepackage{pgfplots} 
+
+%repeat
+\usepackage{expl3}
+
+%plots
+\usepackage{pgfplots}
+\usepackage{catchfilebetweentags}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{blindtext}
+\usepackage{chngcntr}
+
+\usepackage{titling}
+%subsubsubsection
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+\author{Wojciech Lassmann}
+\font\myfont=cmr12 at 50pt
+\title{\myfont{MasTODOnt}\\  \huge or how to empower masses\\to add great value to the world\\in a nick of time}
+\date{\today}
+
+
+\newcommand{\false}{n}
+
+\makeatletter
+\def\section{\@startsection{section}{1}{\z@ }%
+  {-3.5ex\@plus -1ex\@minus -.2ex}{2.3ex \@plus .2ex}%
+  {\noindent\normalfont \Large \bfseries \ }%
+}
+\makeatother
+
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+
+\makeatletter
+\newcommand\calledName[1]{%
+  \@ifundefined{r@#1}{%
+     ~ %
+  }{%
+    \nameref{#1}%
+  }%
+}
+\makeatother
+
+
+\newcounter{mylabelcounter}
+
+\makeatletter
+\newcommand{\labelText}[2]{%
+#1\refstepcounter{mylabelcounter}%
+\immediate\write\@auxout{%
+  \string\newlabel{#2}{{1}{\thepage}{{\unexpanded{#1}}}{mylabelcounter.\number\value{mylabelcounter}}{}}%
+}%
+}
+\makeatother
+
+
+\pgfplotsset{compat=1.15}
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents  
+\newpage
+\listoftables
+\newpage
+\listoffigures
+
+%\renewcommand{\theparagraph}{\S\arabic{paragraph}}
+\setcounter{secnumdepth}{4}
+
+\newcounter{ct}
+\newcounter{subc}
+
+\ExplSyntaxOn
+\cs_new_eq:NN \Repeat \prg_replicate:nn
+\ExplSyntaxOff
+
+
+\newcommand{\smallsec}[1]{\subsubsection {#1} }
+
+
+\newcommand{\secstarter}{\begin{enumerate}}
+\newcommand{\secend}{\end{enumerate}}
+\newcommand{\smallersec}[1]{\item{#1} }
+
+
+
+%\newcommand{\secstarter}{}
+%\newcommand{\secend}{}
+%\newcommand{\smallersec}[1]{\paragraph{#1} }
+
+
+
+
+\newcommand{\bncsec}[1]{\newpage \subsection{#1} }
+
+\newcommand{\rinc}[1] {\stepcounter{subc} \calledName{#1:\arabic{subc}} }
+
+
+%\setcounter{section}{0}
+\newpage
+\part{Fractal flow} 
+\section{The philosophy}
+In a certain sense there is a fractal relation between organisation and the individuals who are part of it.
+
+\subsection{Organizational Maslow pyramid}
+The typical flow of corporate hierarchy of needs can be described as:
+\begin{enumerate}
+  \item Physiological-> Profit - If your organization has no need for it, it is probably dying but you just dont know it yet
+  \item Safety -> Order and stability - If you see no need to organize - you will wake up one day in some heavy mess (good luck doing this while your organization is starved out). \\Examples:
+  \begin{itemize}
+    \item Regulatory complience - if your company dont care about it you probably dont have computer eather
+    \item Management systems and practices - if you dont need this - you most likely don't need to read further
+  \end{itemize} 
+  \item Belonging -> Growth - if you dont plan to grow you will simply personally react to threats - its vegetation, not prospering. (growth  without order must be tons of fun especialy in later stages)
+  \item Esteem -> Brand - Being recognized for the quality you bring with you - what's not to love in it? But the brand is not only for the products you provide but allso how you treat your people, and for this you need at least some ;)
+  \item Self actualisation -> Positive impact - if you are not aiming for positive impact than why do you even want to do this in first place? Its cancer cells logic. Do you want your brand to be associated with cancer?
+  \item Self transcendence -> Legacy - If you make an impact and dont care about legacy, after few years its like nothing happened (and YEAH the word POSITIVE is really important). \\This world is full of:
+  \begin{itemize}
+    \item Great products that are no longer maintained
+    \item Restaurants serving most delicious food you ever tried..., and one day when you want to eat there they are just... gone...
+    \item People that helped you that one time when you really neded it... but you cant thank them because you have no ide a who they actually were 
+    \item Great individuals who end their journey with sudden, violent strike of fate.
+  \end{itemize} 
+  If you are making true positive impact, I beg you, protect your legacy.
+\end{enumerate} 
+\newpage
+\section{Process flow management}
+Flows consist of 3 parts:
+\begin{itemize}
+  \item Action item which consists of:
+  \begin{itemize}
+    \item Name specifier - unique (in the scope of colour) name of this item
+    \item brief item description
+    \item list of affected components
+  \end{itemize}
+  \item List of ordered flow steps containing:
+  \begin{itemize}
+    \item Name specifier - unique (in the scope of this particular flow) name of this step
+    \item brief step description
+    \item list of affected components
+    \item chronologicly ordered list of relevant tickets
+    \item status {in place, in progress, dried}
+  \end{itemize}
+\end{itemize}
+\subsection{Critical flows}
+There are 3 distinctive types of flows within this management that needs to take place for the organization to exist:
+\subsubsection{Green flows}\label{philo:green:flow}
+Green flow is the description of the flow that we need, in order for the application, to run propperly. 
+\begin{itemize}
+  \item Action item depicts the functionality 
+  \item Flow steps explain the implementation
+\end{itemize}
+\subsubsection{Red flows}\label{philo:red:flow}
+Red flow is the description of the incidents that we want to avoid and the steps we need to do in order for them not to occur. It may or may not be paired with brown flow.
+\begin{itemize}
+  \item Action item depicts the problem 
+  \item Flow steps contains reference to green flow steps that implements safety precautions
+\end{itemize}
+\subsubsection{Brown flows}\label{philo:brown:flow}
+Brown flow is the description of how to tackle an incident that allready happened (how to channel the brown flow to avoid further damage). It should allways be paired with red flow.
+\begin{itemize}
+  \item Action item depicts the problem 
+  \item Flow steps explain the way to deal with the problem
+\end{itemize}
+If \nameref{philo:red:flow} of the coresponding action item is fully implemented and guarantees that the problem will never occur this brown flow gets dried.
+\subsection{Fractal flows}
+There are 2 flows that needs to take place for the organization to grow in fractal way
+\subsubsection{Blue flows}\label{philo:blue:flow}
+Blue flows are the ideas for the new functionalities and description how they should be implemented
+\begin{itemize}
+  \item Action item depicts the new feature suggestion 
+  \item Flow steps explain the way to implement solution
+\end{itemize}
+\subsubsection{Indigo flows}\label{philo:indigo:flow}
+Indigo flows are current ideas for the impementation change and description in what way would it benefit company
+\begin{itemize}
+  \item Action item depicts the implementation change suggestion 
+  \item Flow steps explain the way implemented solution affects the organisational environment
+\end{itemize}
+\subsection{Flow relations}
+\begin{itemize}
+  \item The negative action items (that should be avoided/channeled) that doesnt fully implement 
+  Red or Brown flow are in the place called darkness which is codename for pending disaster
+  \item The Brown flow needs to be paired with red flow for specyfic action item (dude, at least TRY to limit the isue occurences)
+  \item The Red flow can be paired with brown flow but in ideal scenario it drains it (better to avoid problem than to deal with it)
+  \item The Green flows consists of both the current state, and approved modifications that are on its way to be implemented
+  \item Unimplemented Red, Green, and Brown flows have "Pale" colour specifier prefix.
+  \item 
+  \item The Blue and indigo are suggestions that did not yet got approval
+  \item Blue flow is downstream - corresponds to buissness side suggestions which should have major impact on generating value to stakeholders while the implementation estimations might not reflect the actual state.
+  \item Indigo flow is upstream - corresponds to implementation side suggestion which may not have major impact on generating value to stakeholders but the implementation process is well understood.
+\end{itemize}
+\newpage
+\section{Ticket hierarchy}
+\subsection{Organization}
+\subsubsection{Why is it needed}
+To create general understanding  where does the task reside within the context of bussiness logic of company
+\subsubsection{What stories are on this level}
+\begin{itemize}
+    \item goals
+    \item missions
+    \item direction changes
+    \item pivots
+\end{itemize}
+Bussiness strategical level bussiness changes, pivots but allso goals, values and missions.
+\subsubsection{Who Should write on this level}
+Board
+\subsection{Programmes}
+children of organization - programmes that support the change or maintainance.
+\subsubsection{Why is it needed}
+To better understand the vectors of actions taking place
+\subsubsection{What stories are on this level}
+The actions needed to thake place in order to support business decisions or 
+\subsubsection{Who Should write on this level}
+Senior directors
+\subsection{Projects}
+Children of programmes - projects that implement the change or maintainance.
+\subsubsection{Why is it needed}
+To give beter view of the project - and the decisions which led to its current state. 
+\subsubsection{What stories are on this level}
+The base state and incremental changes in order to support change and maintain flow
+\subsubsection{Who Should write on this level}
+Directors/ managers
+\subsection{Modules}
+Children of projects - structural components that sum up to the project.
+\subsubsection{Why is it needed}
+It is the actual end where "the real work" is done
+\subsubsection{What stories are on this level}
+The component base state and the actions necesary to perform changes(the tipical kanban ticket):
+\begin{itemize}
+    \item researches
+    \item fixes
+    \item feature implementations
+\end{itemize} 
+\subsubsection{Who Should write on this level}
+Managers/team
+\subsubsection{What are the children}
+Depending on project size and structure there might need to be more levels (submodules, subsubmodules), but they can work simply in recursive manner.
+
+
+
+\newpage
+%\setcounter{section}{0}
+\part{BNC}
+\section{Business Node canvas}
+%\begin{sidewaysfigure}
+% \usepackage{multirow}
+% \usepackage{booktabs}
+
+
+\newcommand{\tabwidth}{3cm}
+
+
+\newcommand{\headit}[1] {
+\color{blue}\textbf{\nameref{#1}} \Repeat{7}{ \\ \rinc{#1}} \setcounter{subc}{0}}
+
+\begin{table}[h]
+\begin{tabular}{|p{\tabwidth}|p{\tabwidth}|p{\tabwidth}|p{\tabwidth}|p{\tabwidth}|} 
+\toprule
+\multirow{2}{*}{
+\begin{tabular}[c]{@{}l@{}}\headit{prob} \end{tabular}} 
+& \begin{tabular}[c]{@{}l@{}}\headit{sol} \end{tabular}       
+& \multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}\headit{uvp} \end{tabular}} 
+& \begin{tabular}[c]{@{}l@{}}\headit{relation}\end{tabular}     
+& \multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}\headit{customer} \end{tabular}}  \\ 
+\cline{2-2}\cline{4-4}
+
+& \begin{tabular}[c]{@{}l@{}}\headit{metrics} \end{tabular} &                                                                    
+& \begin{tabular}[c]{@{}l@{}}\headit{channels}  \end{tabular} &  
+                                                                        \\ 
+\hline
+
+
+\multicolumn{3}{|l|}{\begin{tabular}[c]{@{}l@{}}\headit{cost}  \end{tabular}}                                                                                                                             
+
+& \multicolumn{2}{|l|}{\begin{tabular}[c]{@{}l@{}}\headit{revenue}  \end{tabular}}                                                                         \\
+\bottomrule
+\end{tabular}
+\caption{BNC}
+\end{table}
+%\end{sidewaysfigure}
+
+
+\begin{table}
+\centering
+\begin{tabular}{lllll} 
+\toprule
+ &  &  &  &   \\
+ &  &  &  &   \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+\bncsec{Stakeholders 1}\label{customer}\stepcounter{ct}
+\smallsec{Employers}\label{customer:1}
+Self oranization and self management of organization is the dream of every employee. 
+\smallsec{Employees}\label{customer:2}
+The lack of structure to fascilitate communication between the IT departament and 
+literally anyone else creates enormous knowledge gap and administrative overhead.
+\smallsec{Contributors}\label{customer:3}
+% \smallsec{The Organised}\label{customer:4} %will be addressed with one of the extansions
+
+\bncsec{Problem 2}\label{prob}
+\smallsec{Organise work}\label{prob:1}
+Work organization is really painfull especially within bigger projects.
+\smallsec{Document work}\label{prob:2}
+The normal flow is like this:
+\begin{enumerate}
+  \item Manager formulates the requested change into task
+  \item Asignee gets this task and tries to complete 
+  \item Asignee explains later on to the reporter how the task was done
+  \item if Asignee remembers and have time for it he/(she) updates the documentation\label{doc:steps}
+\end{enumerate}
+The step number \ref*{doc:steps} should not be necesarry - both the change and its explaination 
+has allready been done so reformulating everything in form of documentation is a bit of an overkill
+
+\bncsec{Solution 3}\label{sol}
+\smallsec{Musts}\label{sol:1}
+\secstarter
+\smallersec{Green flows}\label{sol:1:1}
+\\Green flow is the description of the flow that we want for the application to run propperly
+\smallersec{Red Flow}\label{sol:1:2}
+\\Red flow is the description of the incidents that we want to avoid and the steps we need to do in order for them not to occur
+\smallersec{Brown flows}\label{sol:1:3}
+\\Brown flow is the description of how to tackle an incident that allready happened (how to channel the brown flow to avoid further damage)
+\secend
+\smallsec{WOW's}\label{sol:2}
+\secstarter
+\smallersec{Blue flows}\label{sol:2:1}
+\\Blue flows Ideas for cool new bussines features
+\smallersec{Indygo flows}\label{sol:2:2}
+\secend
+
+\bncsec{Proposition 4}\label{uvp}
+\smallsec{MasTODOnt}\label{uvp:1}
+
+
+
+\bncsec{Channels 5}\label{channels}
+\smallsec{Webpage}\label{channels:1}
+
+\bncsec{Revenue stream 6}\label{revenue}
+\smallsec{Donate}\label{revenue:1}
+\smallsec{Support}\label{revenue:2}
+\smallsec{"Skins"}\label{revenue:3}
+
+\bncsec{Cost structure 7}\label{cost}
+\smallsec{Servers}\label{cost:1}
+\smallsec{Fees}\label{cost:2}
+
+\bncsec{Key metrics 8}\label{metrics}
+\smallsec{System approval}\label{metrics:2}
+\secstarter
+\smallersec{\% Active users increase}\label{metrics:2:1}
+\smallersec{\% Positive to negative feedback ratio}\label{metrics:2:2}
+\smallersec{\% Active contributors increase}\label{metrics:2:3}
+\secend
+
+\bncsec{Relationship 9}\label{relation}
+\smallsec{Our Webpage}\label{relation:3}
+\smallsec{Grapevine}\label{relation:1}
+\smallsec{Social media}\label{relation:2}
+
+
+
+
+\newpage
+\part{System elements}
+\section{Green flows}
+\subsection{CRUDE -> User can perform crude operations}
+\subsubsection{Log in}\label{GF:LOGIN}
+By the authorisation method mentioned in \ref{AUTH:POC} user logs in \\
+tickets - NONE
+\subsubsection{Add ticket (optional)}\label{GF:ADD}
+By UI mentioned in \ref{UI:POC} user can add ticket based on template detailed in \ref{MODEL:POC} 
+to a currently selected node. Added tickets go through server mentioned in \ref{SRV:POC} and land in database mentioned in \ref{DB:POC}\\
+tickets - NONE
+\subsubsection{Move to node (optional)}
+By UI mentioned in \ref{UI:POC} user can navigate within datamodel consisting structures defined in \ref{MODEL:POC}\\
+tickets - NONE
+\subsubsection{List}
+By UI mentioned in \ref{UI:POC} user can list tickets from current node. This list is cashed so no need for server calls.\\
+tickets - NONE
+\subsubsection{Put}
+By UI mentioned in \ref{UI:POC} user can update ticket based on template detailed in \ref{MODEL:POC} 
+to replace a part of selected node. Updated tickets go through server mentioned in \ref{SRV:POC} and land in database mentioned in \ref{DB:POC}\\
+tickets - NONE
+\subsubsection{Read}
+By UI mentioned in \ref{UI:POC} user can read tickets. It is cashed operation so no need for server call.\\
+tickets - NONE
+\subsubsection{Remove}
+By UI mentioned in \ref{UI:POC} user can remove tickets. Removed tickets go through server mentioned in \ref{SRV:POC} and land in database mentioned in \ref{DB:POC} in a form of a visibility hiding flag. After x time they are replaced for good.\\
+tickets - NONE
+
+
+
+\newpage
+\section{POC phase}
+\subsection{User interfaces}\label{UI:POC}
+CLI
+\subsubsection{Why?}
+\begin{enumerate}
+    \item Does the job done
+    \item Is fast to prototype
+    \item Is easy to refactor
+\end{enumerate}
+\subsubsection{Problems?}
+\begin{enumerate}
+    \item It's bit unhandy - but for early stage - suffice
+\end{enumerate}
+
+\subsection{User authorisation}\label{AUTH:POC}
+Local gitignored uname/passwd json file.
+\subsubsection{Why?}
+\begin{enumerate}
+    \item Does the job done
+    \item Is fast to prototype
+    \item Is easy to refactor
+    \item Is easy to refactor
+    \item Creates interface for the future
+\end{enumerate}
+\subsubsection{Problems?}
+\begin{enumerate}
+    \item It's bit unhandy - but for early stage - suffice
+\end{enumerate}
+\subsection{Database}\label{DB:POC}
+Gitignored Json synced by Dropbox
+\subsubsection{Why?}
+\begin{enumerate}
+    \item Does the job done
+    \item Is fast to prototype
+    \item Is easy to refactor
+    \item Makes it easy to extend onto another "databases"
+\end{enumerate}
+\subsubsection{Problems?}
+\begin{enumerate}
+    \item To sync it we have to use Dropbox (thanks Poszu) - collisions might occur, but will probably be rare.
+\end{enumerate}
+
+\subsection{Data models}\label{MODEL:POC}
+Kanban ticket
+\subsubsection{Why?}
+\begin{enumerate}
+    \item Does the job done
+    \item Is rather basic
+    \item Once this is done it will make the rest work easier
+\end{enumerate}
+\subsubsection{Problems?}
+Nope - there is no problem with it
+\subsubsection{Ticket structure}
+\begin{itemize}
+  \item Primary key       [int]
+  \item unique name       [String]
+  \item description       [String]
+  \item story points      [int]
+  \item parent ticket     [enum(hash)]
+  \item child ticket      [enum(hash)]
+  \item reporter          [enum(String)]
+  \item asignee           [enum(String)]
+  \item affected modules  [list]
+\end{itemize}
+
+\subsection{Server}\label{SRV:POC}
+Local Machine
+\subsubsection{Why?}
+\begin{enumerate}
+    \item Does the job done
+    \item Is fast to prototype
+    \item Is easy to refactor
+    \item No need for CI/CD
+    \item ...Does the job done!!!
+\end{enumerate}
+\subsubsection{Problems?}
+Well it's gonna work simply as a console application, nothing shiny about it - we code and debug and as we debug we us the app. Stupid simple. 
+\newpage
+
+%\setcounter{section}{0}
+\part{Experiments}
+\section{Learning Goal: System pilot}
+
+What do we need to learn?
+What is our riskiest assumption?
+What is our one priority?
+
+\subsection{Plan}
+How will you collect the data?\\
+Is it Specific?\\
+Is it ! Achievable?\\
+Link to any supporting documents\\
+
+After creating POC our team can develop new features with little to no help from other features.
+
+\subsection{Hypothesis}
+Is it falsifiable?!
+Is it specific?
+Is it causal? e.g. If X then Y
+Is it Relevant to the learning goal?
+
+\subsubsection{Hypothesis no external features}\labelText{After POC we should need little to no external tools to organise work on this project}{Hypo:1}
+\secstarter
+\smallersec{Time box}\labelText{3 months}{TB:1}
+\smallersec{Metric}\labelText{Is it Measurable?}{go}
+\smallersec{Result}
+\smallersec{Score}
+\secend
+
+\subsection{Expariment time line}
+...?
+
+
+
+\newpage
+\bibliographystyle{unsrt}
+\bibliography{sample}
+\end{document}
