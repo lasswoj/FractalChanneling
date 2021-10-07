@@ -1,114 +1,30 @@
-\part{Fractal channeling - System elements}
-\section{Green flows}
-\subsection{CRUD -> User can perform crude operations}
-\subsubsection{Read configuration}\label{GF:config}
-By the authorisation method mentioned in \ref{AUTH:POC} user logs in \\
-tickets - NONE
-\subsubsection{Log in}\label{GF:LOGIN}
-By the authorisation method mentioned in \nameref{AUTH:POC} user logs in \\
-tickets - NONE
-\subsubsection{Add ticket (optional)}\label{GF:ADD}
-By UI mentioned in \nameref{UI:POC} user can add ticket based on template detailed in \nameref{MODEL:POC} 
-to a currently selected node. Added tickets go through server mentioned in \nameref{SRV:POC} and land in database mentioned in \nameref{DB:POC}\\
-tickets - NONE
-\subsubsection{Move to node (optional)}
-By UI mentioned in \nameref{UI:POC} user can navigate within datamodel consisting structures defined in \nameref{MODEL:POC}\\
-tickets - NONE
-\subsubsection{List}
-By UI mentioned in \nameref{UI:POC} user can list tickets from current node. This list is cashed so no need for server calls.\\
-tickets - NONE
-\subsubsection{Put}
-By UI mentioned in \nameref{UI:POC} user can update ticket based on template detailed in \nameref{MODEL:POC} 
-to replace a part of selected node. Updated tickets go through server mentioned in \nameref{SRV:POC} and land in database mentioned in \nameref{DB:POC}\\
-tickets - NONE
-\subsubsection{Read}
-By UI mentioned in \nameref{UI:POC} user can read tickets. It is cashed operation so no need for server call.\\
-tickets - NONE
-\subsubsection{Remove}
-By UI mentioned in \nameref{UI:POC} user can remove tickets. Removed tickets go through server mentioned in \nameref{SRV:POC} and land in database mentioned in \ref{DB:POC} in a form of a visibility hiding flag. After x time they are replaced for good.\\
-tickets - NONE
 
-
-
+\input{prefix/main.tex}
+\title{\myfont{Fractal Channeling}\\  \huge or how to empower masses\\to add great value to the world\\in a nick of time}
+\begin{document}
+\maketitle
 \newpage
-\section{POC phase}
-\subsection{User interfaces}\label{UI:POC}
-CLI
-\subsubsection{Why?}
-\begin{enumerate}
-    \item Does the job done
-    \item Is fast to prototype
-    \item Is easy to refactor
-\end{enumerate}
-\subsubsection{Problems?}
-\begin{enumerate}
-    \item It's bit unhandy - but for early stage - suffice
-\end{enumerate}
-
-\subsection{User authorisation}\label{AUTH:POC}
-Local gitignored uname/passwd Toml file.
-\subsubsection{Why?}
-\begin{enumerate}
-    \item Does the job done
-    \item Is fast to prototype
-    \item Is easy to refactor
-    \item For config is just great
-\end{enumerate}
-\subsubsection{Problems?}
-\begin{enumerate}
-    \item None - config is just great
-\end{enumerate}
-\subsection{Database}\label{DB:POC}
-Gitignored Json synced
-\subsubsection{Why?}
-\begin{enumerate}
-    \item Does the job done
-    \item Is fast to prototype
-    \item Is easy to refactor
-    \item Makes it easy to extend onto another "databases"
-\end{enumerate}
-\subsubsection{Problems?}
-\begin{enumerate}
-    \item To sync it we have to use (for example Dropbox - thanks Poszu) - collisions might occur, but will probably be rare.
-\end{enumerate}
-
-\subsection{Data models}\label{MODEL:POC}
-Kanban ticket
-\subsubsection{Why?}
-\begin{enumerate}
-    \item Does the job done
-    \item Is rather basic
-    \item Once this is done it will make the rest work easier
-\end{enumerate}
-\subsubsection{Problems?}
-Nope - there is no problem with it
-\subsubsection{Ticket structure}
-\begin{itemize}
-  \item Primary key       [int]
-  \item unique name       [String]
-  \item description       [String]
-  \item story points      [int]
-  \item parent ticket     [OPTIONAL(DROPDOWN(int))]
-  \item child ticket      [OPTIONAL(DROPDOWN(int))]
-  \item reporter          [DROPDOWN(String)]
-  \item asignee           [DROPDOWN(String)]
-  \item affected\_modules [list]
-  \item relevant\_changes [list]
-  \item continued\_in     [optional(int)]
-\end{itemize}
-
-\subsection{Server}\label{SRV:POC}
-Local Machine
-\subsubsection{Why?}
-\begin{enumerate}
-    \item Does the job done
-    \item Is fast to prototype
-    \item Is easy to refactor
-    \item No need for CI/CD
-    \item ...Does the job done!!!
-\end{enumerate}
-\subsubsection{Problems?}
-Well it's gonna work simply as a console application, nothing shiny about it - we code and debug and as we debug we us the app. Stupid simple. 
+\tableofcontents  
 \newpage
+\listoftables
+\newpage
+\listoffigures
+
+%\renewcommand{\theparagraph}{\S\arabic{paragraph}}
+\setcounter{secnumdepth}{4}
+
+\newcounter{ct}
+\newcounter{subc}
+
+\ExplSyntaxOn
+\cs_new_eq:NN \Repeat \prg_replicate:nn
+\ExplSyntaxOff
+
 
 %\setcounter{section}{0}
+\newpage
+\input{modules/system.tex}
+\newpage
+\bibliographystyle{unsrt}
+\bibliography{sample}
+\end{document}

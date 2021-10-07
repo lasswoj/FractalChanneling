@@ -1,0 +1,130 @@
+
+\section{Green flows}
+\subsection{User can perform CRUD operations}\label{GF:CRUD}
+\subsubsection{Log in}\label{GF:CRUD:LOGIN}
+By the \nameref{AUTH:POC} user logs in \\
+tickets - \nameref{TICKETS:GF:LOGIN}
+\subsubsection{Add}\label{GF:CRUD:ADD}
+By \nameref{UI:POC} user can add ticket based on \nameref{MODEL:POC} 
+to a currently selected node. Added tickets go through \nameref{SRV:POC} and land in \nameref{DB:POC}\\
+tickets - \nameref{TICKETS:GF:ADD}
+\subsubsection{Read}\label{GF:CRUD:READ}
+By \nameref{UI:POC} user can read tickets. It is cashed operation so no need for server call.\\
+tickets - \nameref{TICKETS:GF:READ}
+\subsubsection{Update}\label{GF:CRUD:UP}
+By \nameref{UI:POC} user can update ticket based on \nameref{MODEL:POC} 
+to a currently selected node. Updated tickets go through \nameref{SRV:POC} and replace existing ones in \nameref{DB:POC}\\
+tickets - \nameref{TICKETS:GF:UP}
+\subsubsection{DELETE}\label{GF:CRUD:DEL}
+By \nameref{UI:POC} user can remove tickets. Removed tickets go through server mentioned 
+in \nameref{SRV:POC} and land in database mentioned in \ref{DB:POC} in a form of a visibility 
+hiding flag. After x time they are replaced for good.\\
+tickets - \nameref{TICKETS:GF:DEL}
+\subsubsection{Move}\label{GF:CRUD:MOV}
+By \nameref{UI:POC} user can navigate through nodes within \nameref{MODEL:POC}\\
+tickets - \nameref{TICKETS:GF:MOV}
+\subsubsection{List}\label{GF:CRUD:LIST}
+By \nameref{UI:POC} user can list tickets from current node. This list is cashed so no 
+need for server calls.\\
+tickets - \nameref{TICKETS:GF:LIST}
+
+\newpage
+\section{POC phase}
+\subsection{User interfaces}\label{UI:POC}
+CLI
+\subsubsection{Why?}
+\begin{enumerate}
+    \item Does the job done
+    \item Is fast to prototype
+    \item Is easy to refactor
+\end{enumerate}
+\subsubsection{Problems?}
+\begin{enumerate}
+    \item It's bit unhandy - but for early stage - suffice
+\end{enumerate}
+
+\subsection{User authorisation}\label{AUTH:POC}
+Local gitignored uname/passwd Toml file.
+\subsubsection{Why?}
+\begin{enumerate}
+    \item Does the job done
+    \item Is fast to prototype
+    \item Is easy to refactor
+    \item easy to change it later
+\end{enumerate}
+\subsection{User config}\label{CONFIG:POC}
+Local config Toml file.
+\subsubsection{Why?}
+\begin{enumerate}
+    \item Does the job done
+    \item Is fast to prototype
+    \item Is easy to refactor
+    \item For config is just great
+\end{enumerate}
+\begin{enumerate}
+    \item None - config is just great
+\end{enumerate}
+\subsection{Database}\label{DB:POC}
+Gitignored Json synced by dropbox with symbolic link in ./resources/db1.json
+\subsubsection{Why?}
+\begin{enumerate}
+    \item Does the job done
+    \item Is fast to prototype
+    \item Is easy to refactor
+    \item Makes it easy to extend onto another "databases"
+\end{enumerate}
+\subsubsection{Problems?}
+\begin{enumerate}
+    \item To sync it we have to use (for example Dropbox - thanks Poszu) - collisions might occur, but will probably be rare.
+\end{enumerate}
+
+\subsection{Data models}\label{MODEL:POC}
+Kanban ticket
+\subsubsection{Why?}
+\begin{enumerate}
+    \item Does the job done
+    \item Is rather basic
+    \item Once this is done it will make the rest work easier
+\end{enumerate}
+\subsubsection{Problems?}
+Nope - there is no problem with it
+\subsubsection{Ticket structure}
+\begin{itemize}
+  \item primary\_key        [int]
+  \item unique\_name        [String]
+  \item description         [String]
+  \item story\_points       [int]
+  \item parent\_ticket      [OPTIONAL(int)]
+  \item child\_ticket       [OPTIONAL(int)]
+  \item reporter            [String]
+  \item asignee             [String]
+  \item affected\_modules   [list(String)]
+  \item affected\_steps     [list(String)]
+  \item relevant\_changes   [list(String)]
+  \item continued\_in       [OPTIONAL(int)]
+\end{itemize}
+
+\subsection{Server}\label{SRV:POC}
+Local Machine
+\subsubsection{Why?}
+\begin{enumerate}
+    \item Does the job done
+    \item Is fast to prototype
+    \item Is easy to refactor
+    \item No need for CI/CD
+    \item ...Does the job done!!!
+\end{enumerate}
+\subsubsection{Problems?}
+Well it's gonna work simply as a console application, nothing shiny about it - we code and debug and as we debug we us the app. Stupid simple. 
+\newpage
+
+%\setcounter{section}{0}
+
+\section{Tickets listings}
+\labelText{\href{run:../resources/db1.json}{GF::CRUD::\nameref*{GF:CRUD:LOGIN}}}{TICKETS:GF:LOGIN}\\
+\labelText{\href{run:../resources/db1.json}{GF::CRUD::\nameref*{GF:CRUD:ADD}}}{TICKETS:GF:ADD}\\
+\labelText{\href{run:../resources/db1.json}{GF::CRUD::\nameref*{GF:CRUD:READ}}}{TICKETS:GF:READ}\\
+\labelText{\href{run:../resources/db1.json}{GF::CRUD::\nameref*{GF:CRUD:UP}}}{TICKETS:GF:UP}\\
+\labelText{\href{run:../resources/db1.json}{GF::CRUD::\nameref*{GF:CRUD:DEL}}}{TICKETS:GF:DEL}\\
+\labelText{\href{run:../resources/db1.json}{GF::CRUD::\nameref*{GF:CRUD:MOV}}}{TICKETS:GF:MOV}\\
+\labelText{\href{run:../resources/db1.json}{GF::CRUD::\nameref*{GF:CRUD:LIST}}}{TICKETS:GF:LIST}\\

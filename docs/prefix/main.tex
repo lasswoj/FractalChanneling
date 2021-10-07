@@ -1,0 +1,100 @@
+\documentclass[12pt,a4paper,twoside]{article}
+% \usepackage[utf8]{inputenc}
+
+
+% \usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{kpfonts}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+%diagrams
+\usepackage{tikz}
+\usepackage{changepage}
+\usetikzlibrary{arrows.meta}
+%table width
+\usepackage{tabularx}
+
+\usepackage{titlesec}
+\usepackage{etoc}
+\usepackage{xcolor}
+% rotate
+\usepackage{rotating}
+%kolory
+%\usepackage[dvipsnames]{xcolor}
+
+%tabele
+\usepackage{multirow}
+\usepackage{booktabs}
+
+
+%calculations
+\usepackage{pgf}
+%diagrams
+\usepackage{pgfplots} 
+
+%repeat
+\usepackage{expl3}
+
+%plots
+\usepackage{pgfplots}
+\usepackage{catchfilebetweentags}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{blindtext}
+\usepackage{chngcntr}
+
+\usepackage{titling}
+%subsubsubsection
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+\author{Wojciech Lassmann}
+\font\myfont=cmr12 at 50pt
+\date{\today}
+
+
+\newcommand{\false}{n}
+
+\makeatletter
+\def\section{\@startsection{section}{1}{\z@ }%
+  {-3.5ex\@plus -1ex\@minus -.2ex}{2.3ex \@plus .2ex}%
+  {\noindent\normalfont \Large \bfseries \ }%
+}
+\makeatother
+
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+
+\makeatletter
+\newcommand\calledName[1]{%
+  \@ifundefined{r@#1}{%
+     ~ %
+  }{%
+    \nameref{#1}%
+  }%
+}
+\makeatother
+
+
+\newcounter{mylabelcounter}
+
+% to be able to reference a text
+\makeatletter
+\newcommand{\labelText}[2]{%
+#1\refstepcounter{mylabelcounter}%
+\immediate\write\@auxout{%
+  \string\newlabel{#2}{{1}{\thepage}{{\unexpanded{#1}}}{mylabelcounter.\number\value{mylabelcounter}}{}}%
+}%
+}
+\makeatother
+
+
+\pgfplotsset{compat=1.15}

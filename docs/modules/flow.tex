@@ -1,0 +1,143 @@
+
+\section{The philosophy}
+In a certain sense there is a fractal relation between organisation and the individuals who are part of it.
+
+\subsection{Organizational Maslow pyramid}
+The typical flow of corporate hierarchy of needs can be described as:
+\begin{enumerate}
+  \item Physiological-> Profit - If your organization has no need for it, it is probably dying but you just dont know it yet
+  \item Safety -> Order and stability - If you see no need to organize - you will wake up one day in some heavy mess (good luck doing this while your organization is starved out). \\Examples:
+  \begin{itemize}
+    \item Regulatory complience - if your company dont care about it you probably dont have computer eather
+    \item Management systems and practices - if you dont need this - you most likely don't need to read further
+  \end{itemize} 
+  \item Belonging -> Growth - if you dont plan to grow you will simply personally react to threats - its vegetation, not prospering. (growth  without order must be tons of fun especialy in later stages)
+  \item Esteem -> Brand - Being recognized for the quality you bring with you - what's not to love in it? But the brand is not only for the products you provide but allso how you treat your people, and for this you need at least some ;)
+  \item Self actualisation -> Positive impact - if you are not aiming for positive impact than why do you even want to do this in first place? Its cancer cells logic. Do you want your brand to be associated with cancer?
+  \item Self transcendence -> Legacy - If you make an impact and dont care about legacy, after few years its like nothing happened (and YEAH the word POSITIVE is really important). \\This world is full of:
+  \begin{itemize}
+    \item Great products that are no longer maintained
+    \item Restaurants serving most delicious food you ever tried..., and one day when you want to eat there they are just... gone...
+    \item People that helped you that one time when you really neded it... but you cant thank them because you have no ide a who they actually were 
+    \item Great individuals who end their journey with sudden, violent strike of fate.
+  \end{itemize} 
+  If you are making true positive impact, I beg you, protect your legacy.
+\end{enumerate} 
+\newpage
+\section{Process flow management}
+Flows consist of 3 parts:
+\begin{itemize}
+  \item Action item which consists of:
+  \begin{itemize}
+    \item Name specifier - unique (in the scope of colour) name of this item
+    \item brief item description
+    \item list of affected components
+  \end{itemize}
+  \item List of ordered flow steps containing:
+  \begin{itemize}
+    \item Name specifier - unique (in the scope of this particular flow) name of this step
+    \item brief step description
+    \item list of affected components
+    \item chronologicly ordered list of relevant tickets
+    \item status {in place, in progress, dried}
+  \end{itemize}
+\end{itemize}
+\subsection{Critical flows}
+There are 3 distinctive types of flows within this management that needs to take place for the organization to exist:
+\subsubsection{Green flows}\label{philo:green:flow}
+Green flow is the description of the flow that we need, in order for the application, to run propperly. 
+\begin{itemize}
+  \item Action item depicts the functionality 
+  \item Flow steps explain the implementation
+\end{itemize}
+\subsubsection{Red flows}\label{philo:red:flow}
+Red flow is the description of the incidents that we want to avoid and the steps we need to do in order for them not to occur. It may or may not be paired with brown flow.
+\begin{itemize}
+  \item Action item depicts the problem 
+  \item Flow steps contains reference to green flow steps that implements safety precautions
+\end{itemize}
+\subsubsection{Brown flows}\label{philo:brown:flow}
+Brown flow is the description of how to tackle an incident that allready happened (how to channel the brown flow to avoid further damage). It should allways be paired with red flow.
+\begin{itemize}
+  \item Action item depicts the problem 
+  \item Flow steps explain the way to deal with the problem
+\end{itemize}
+If \nameref{philo:red:flow} of the coresponding action item is fully implemented and guarantees that the problem will never occur this brown flow gets dried.
+\subsection{Fractal flows}
+There are 2 flows that needs to take place for the organization to grow in fractal way
+\subsubsection{Blue flows}\label{philo:blue:flow}
+Blue flows are the ideas for the new functionalities and description how they should be implemented
+\begin{itemize}
+  \item Action item depicts the new feature suggestion 
+  \item Flow steps explain the way to implement solution
+\end{itemize}
+\subsubsection{Indigo flows}\label{philo:indigo:flow}
+Indigo flows are current ideas for the impementation change and description in what way would it benefit company
+\begin{itemize}
+  \item Action item depicts the implementation change suggestion 
+  \item Flow steps explain the way implemented solution affects the organisational environment
+\end{itemize}
+\subsection{Flow relations}
+\begin{itemize}
+  \item The negative action items (that should be avoided/channeled) that doesnt fully implement 
+  Red or Brown flow are in the place called darkness which is codename for pending disaster
+  \item The Brown flow needs to be paired with red flow for specyfic action item (dude, at least TRY to limit the isue occurences)
+  \item The Red flow can be paired with brown flow but in ideal scenario it drains it (better to avoid problem than to deal with it)
+  \item The Green flows consists of both the current state, and approved modifications that are on its way to be implemented
+  \item Unimplemented Red, Green, and Brown flows have "Pale" colour specifier prefix.
+  \item 
+  \item The Blue and indigo are suggestions that did not yet got approval
+  \item Blue flow is downstream - corresponds to buissness side suggestions which should have major impact on generating value to stakeholders while the implementation estimations might not reflect the actual state.
+  \item Indigo flow is upstream - corresponds to implementation side suggestion which may not have major impact on generating value to stakeholders but the implementation process is well understood.
+\end{itemize}
+\newpage
+\section{Ticket hierarchy}
+\subsection{Organization}
+\subsubsection{Why is it needed}
+To create general understanding  where does the task reside within the context of bussiness logic of company
+\subsubsection{What stories are on this level}
+\begin{itemize}
+    \item goals
+    \item missions
+    \item direction changes
+    \item pivots
+\end{itemize}
+Bussiness strategical level bussiness changes, pivots but allso goals, values and missions.
+\subsubsection{Who Should write on this level}
+Board
+\subsection{Programmes}
+children of organization - programmes that support the change or maintainance.
+\subsubsection{Why is it needed}
+To better understand the vectors of actions taking place
+\subsubsection{What stories are on this level}
+The actions needed to thake place in order to support business decisions or maintan them
+\subsubsection{Who Should write on this level}
+Senior directors
+\subsection{Projects}
+Children of programmes - projects that implement the change or maintainance.
+\subsubsection{Why is it needed}
+To give beter view of the project - and the decisions which led to its current state. 
+\subsubsection{What stories are on this level}
+The base state and incremental changes in order to support change and maintain flow
+\subsubsection{Who Should write on this level}
+Directors/ managers
+\subsection{Modules}
+Children of projects - structural components that sum up to the project.
+\subsubsection{Why is it needed}
+It is the actual end where "the real work" is done
+\subsubsection{What stories are on this level}
+The component base state and the actions necesary to perform changes(the tipical kanban ticket):
+\begin{itemize}
+    \item researches
+    \item fixes
+    \item feature implementations
+\end{itemize} 
+\subsubsection{Who Should write on this level}
+Managers/team
+\subsubsection{What are the children}
+Depending on project size and structure there might need to be more levels (submodules, subsubmodules), but they can work simply in recursive manner.
+
+
+
+\newpage
+%\setcounter{section}{0}
