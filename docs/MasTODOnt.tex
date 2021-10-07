@@ -253,7 +253,7 @@ children of organization - programmes that support the change or maintainance.
 \subsubsection{Why is it needed}
 To better understand the vectors of actions taking place
 \subsubsection{What stories are on this level}
-The actions needed to thake place in order to support business decisions or 
+The actions needed to thake place in order to support business decisions or maintan them
 \subsubsection{Who Should write on this level}
 Senior directors
 \subsection{Projects}
@@ -391,11 +391,15 @@ has allready been done so reformulating everything in form of documentation is a
 
 \bncsec{Channels 5}\label{channels}
 \smallsec{Webpage}\label{channels:1}
+\smallsec{ProductHunt}\label{channels:2}
 
 \bncsec{Revenue stream 6}\label{revenue}
 \smallsec{Donate}\label{revenue:1}
 \smallsec{Support}\label{revenue:2}
 \smallsec{"Skins"}\label{revenue:3}
+\smallsec{Trainings}\label{revenue:4}
+\smallsec{Books}\label{revenue:5}
+\smallsec{Certifications}\label{revenue:6}
 
 \bncsec{Cost structure 7}\label{cost}
 \smallsec{Servers}\label{cost:1}
@@ -404,130 +408,24 @@ has allready been done so reformulating everything in form of documentation is a
 \bncsec{Key metrics 8}\label{metrics}
 \smallsec{System approval}\label{metrics:2}
 \secstarter
-\smallersec{\% Active users increase}\label{metrics:2:1}
-\smallersec{\% Positive to negative feedback ratio}\label{metrics:2:2}
-\smallersec{\% Active contributors increase}\label{metrics:2:3}
+\smallersec{\% Active users increase}\label{metrics:2:1}\\
+We need to monitor how fast we are gaining users
+\smallersec{\% Positive to negative feedback ratio}\label{metrics:2:2}\\
+We need to monitor the user satisfaction
+\smallersec{\% Active contributors increase}\label{metrics:2:3}\\
+We need to monitor how fast are we growing 
 \secend
 
 \bncsec{Relationship 9}\label{relation}
 \smallsec{Our Webpage}\label{relation:3}
-\smallsec{Grapevine}\label{relation:1}
+\smallsec{Grapevine}\label{relation:1} 
 \smallsec{Social media}\label{relation:2}
 
 
 
 
 \newpage
-\part{System elements}
-\section{Green flows}
-\subsection{CRUDE -> User can perform crude operations}
-\subsubsection{Log in}\label{GF:LOGIN}
-By the authorisation method mentioned in \ref{AUTH:POC} user logs in \\
-tickets - NONE
-\subsubsection{Add ticket (optional)}\label{GF:ADD}
-By UI mentioned in \ref{UI:POC} user can add ticket based on template detailed in \ref{MODEL:POC} 
-to a currently selected node. Added tickets go through server mentioned in \ref{SRV:POC} and land in database mentioned in \ref{DB:POC}\\
-tickets - NONE
-\subsubsection{Move to node (optional)}
-By UI mentioned in \ref{UI:POC} user can navigate within datamodel consisting structures defined in \ref{MODEL:POC}\\
-tickets - NONE
-\subsubsection{List}
-By UI mentioned in \ref{UI:POC} user can list tickets from current node. This list is cashed so no need for server calls.\\
-tickets - NONE
-\subsubsection{Put}
-By UI mentioned in \ref{UI:POC} user can update ticket based on template detailed in \ref{MODEL:POC} 
-to replace a part of selected node. Updated tickets go through server mentioned in \ref{SRV:POC} and land in database mentioned in \ref{DB:POC}\\
-tickets - NONE
-\subsubsection{Read}
-By UI mentioned in \ref{UI:POC} user can read tickets. It is cashed operation so no need for server call.\\
-tickets - NONE
-\subsubsection{Remove}
-By UI mentioned in \ref{UI:POC} user can remove tickets. Removed tickets go through server mentioned in \ref{SRV:POC} and land in database mentioned in \ref{DB:POC} in a form of a visibility hiding flag. After x time they are replaced for good.\\
-tickets - NONE
-
-
-
-\newpage
-\section{POC phase}
-\subsection{User interfaces}\label{UI:POC}
-CLI
-\subsubsection{Why?}
-\begin{enumerate}
-    \item Does the job done
-    \item Is fast to prototype
-    \item Is easy to refactor
-\end{enumerate}
-\subsubsection{Problems?}
-\begin{enumerate}
-    \item It's bit unhandy - but for early stage - suffice
-\end{enumerate}
-
-\subsection{User authorisation}\label{AUTH:POC}
-Local gitignored uname/passwd json file.
-\subsubsection{Why?}
-\begin{enumerate}
-    \item Does the job done
-    \item Is fast to prototype
-    \item Is easy to refactor
-    \item Is easy to refactor
-    \item Creates interface for the future
-\end{enumerate}
-\subsubsection{Problems?}
-\begin{enumerate}
-    \item It's bit unhandy - but for early stage - suffice
-\end{enumerate}
-\subsection{Database}\label{DB:POC}
-Gitignored Json synced by Dropbox
-\subsubsection{Why?}
-\begin{enumerate}
-    \item Does the job done
-    \item Is fast to prototype
-    \item Is easy to refactor
-    \item Makes it easy to extend onto another "databases"
-\end{enumerate}
-\subsubsection{Problems?}
-\begin{enumerate}
-    \item To sync it we have to use Dropbox (thanks Poszu) - collisions might occur, but will probably be rare.
-\end{enumerate}
-
-\subsection{Data models}\label{MODEL:POC}
-Kanban ticket
-\subsubsection{Why?}
-\begin{enumerate}
-    \item Does the job done
-    \item Is rather basic
-    \item Once this is done it will make the rest work easier
-\end{enumerate}
-\subsubsection{Problems?}
-Nope - there is no problem with it
-\subsubsection{Ticket structure}
-\begin{itemize}
-  \item Primary key       [int]
-  \item unique name       [String]
-  \item description       [String]
-  \item story points      [int]
-  \item parent ticket     [enum(hash)]
-  \item child ticket      [enum(hash)]
-  \item reporter          [enum(String)]
-  \item asignee           [enum(String)]
-  \item affected modules  [list]
-\end{itemize}
-
-\subsection{Server}\label{SRV:POC}
-Local Machine
-\subsubsection{Why?}
-\begin{enumerate}
-    \item Does the job done
-    \item Is fast to prototype
-    \item Is easy to refactor
-    \item No need for CI/CD
-    \item ...Does the job done!!!
-\end{enumerate}
-\subsubsection{Problems?}
-Well it's gonna work simply as a console application, nothing shiny about it - we code and debug and as we debug we us the app. Stupid simple. 
-\newpage
-
-%\setcounter{section}{0}
+\input{system.tex}
 \part{Experiments}
 \section{Learning Goal: System pilot}
 
