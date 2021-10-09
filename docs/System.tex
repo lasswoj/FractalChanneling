@@ -1,7 +1,8 @@
 
-\input{prefix/main.tex}
+\input{prefix/predoc.tex}
 \title{\myfont{Fractal Channeling}\\  \huge or how to empower masses\\to add great value to the world\\in a nick of time}
 \begin{document}
+\input{prefix/funcs.tex}
 \maketitle
 \newpage
 \tableofcontents  
@@ -9,8 +10,6 @@
 \listoftables
 \newpage
 \listoffigures
-
-%\renewcommand{\theparagraph}{\S\arabic{paragraph}}
 \setcounter{secnumdepth}{4}
 
 \newcounter{ct}
@@ -19,9 +18,6 @@
 \ExplSyntaxOn
 \cs_new_eq:NN \Repeat \prg_replicate:nn
 \ExplSyntaxOff
-
-
-%\setcounter{section}{0}
 \newpage
 \input{modules/system.tex}
 \newpage

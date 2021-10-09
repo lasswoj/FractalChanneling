@@ -1,6 +1,7 @@
 
 \section{Green flows}
-\subsection{User can perform CRUD operations}\label{GF:CRUD}
+\subsection{CRUD operations}\label{GF:CRUD}
+User can perform typical crud and allso move and list operations.
 \subsubsection{Log in}\label{GF:CRUD:LOGIN}
 By the \nameref{AUTH:POC} user logs in \\
 tickets - \nameref{TICKETS:GF:LOGIN}
@@ -29,66 +30,44 @@ need for server calls.\\
 tickets - \nameref{TICKETS:GF:LIST}
 
 \newpage
-\section{POC phase}
+\section{System description}
 \subsection{User interfaces}\label{UI:POC}
-CLI
-\subsubsection{Why?}
+
+\subsubsection{CLI}
+discord discussions:\\
+\href{https://discord.com/channels/892473074434310144/896321419498098689}{initial discussion}\\
+Most important features
 \begin{enumerate}
-    \item Does the job done
-    \item Is fast to prototype
-    \item Is easy to refactor
-\end{enumerate}
-\subsubsection{Problems?}
-\begin{enumerate}
-    \item It's bit unhandy - but for early stage - suffice
+    \item allows to interact with system using instructions from command line
+    \item enables \nameref{GF:CRUD}
 \end{enumerate}
 
-\subsection{User authorisation}\label{AUTH:POC}
-Local gitignored uname/passwd Toml file.
-\subsubsection{Why?}
-\begin{enumerate}
-    \item Does the job done
-    \item Is fast to prototype
-    \item Is easy to refactor
-    \item easy to change it later
-\end{enumerate}
-\subsection{User config}\label{CONFIG:POC}
-Local config Toml file.
-\subsubsection{Why?}
-\begin{enumerate}
-    \item Does the job done
-    \item Is fast to prototype
-    \item Is easy to refactor
-    \item For config is just great
-\end{enumerate}
-\begin{enumerate}
-    \item None - config is just great
-\end{enumerate}
+\subsection{User authorisation and config}\label{AUTH:POC}\label{CONFIG:POC}
+discord discussions:
+\begin{itemize}
+    \item \href{https://discord.com/channels/892473074434310144/896357478600671272}{initial discussion- authorization}
+    \item \href{https://discord.com/channels/892473074434310144/896360600542789642}{initial discussion- config}
+\end{itemize}
+Username and password is stroed in apopreate form in local gitignored configuration Toml file. 
+Program reads this file in the beginnig of the project. 
 \subsection{Database}\label{DB:POC}
-Gitignored Json synced by dropbox with symbolic link in ./resources/db1.json
-\subsubsection{Why?}
+\subsubsection{local Json}
+Gitignored Json synced by dropbox with symbolic link in ./resources/db1.json.\\
+how to setup(\href{https://discord.com/channels/892473074434310144/895768675146154004/895772874613346354}{discord discussion}):
 \begin{enumerate}
-    \item Does the job done
-    \item Is fast to prototype
-    \item Is easy to refactor
-    \item Makes it easy to extend onto another "databases"
+    \item Send mail to Wojtek (i will share folder "sync")
+    \item Get dropbox
+    \item Get dropbox local folder
+    \item Check if you have the shared folder "synced" with db.json in it
+    \item In "resources" project folder create symbolic link (shortcut) with name "db1.json" pointing to it.
+    \item Drink
 \end{enumerate}
-\subsubsection{Problems?}
-\begin{enumerate}
-    \item To sync it we have to use (for example Dropbox - thanks Poszu) - collisions might occur, but will probably be rare.
-\end{enumerate}
+
+\href{https://discord.com/channels/892473074434310144/892481179624824843}{initial discussion}
 
 \subsection{Data models}\label{MODEL:POC}
-Kanban ticket
-\subsubsection{Why?}
-\begin{enumerate}
-    \item Does the job done
-    \item Is rather basic
-    \item Once this is done it will make the rest work easier
-\end{enumerate}
-\subsubsection{Problems?}
-Nope - there is no problem with it
-\subsubsection{Ticket structure}
+\subsubsection{Kanban ticket}
+Ticket structure
 \begin{itemize}
   \item primary\_key        [int]
   \item unique\_name        [String]
@@ -103,20 +82,18 @@ Nope - there is no problem with it
   \item relevant\_changes   [list(String)]
   \item continued\_in       [OPTIONAL(int)]
 \end{itemize}
+\href{https://discord.com/channels/892473074434310144/892483718495731753}{initial discussion}
 
 \subsection{Server}\label{SRV:POC}
-Local Machine
-\subsubsection{Why?}
+\subsubsection{Local Machine}
+It is a separated program running on localhost. \\
+\href{https://discord.com/channels/892473074434310144/896382199736172564}{initial discussion}\\
+Most important features
 \begin{enumerate}
-    \item Does the job done
-    \item Is fast to prototype
-    \item Is easy to refactor
-    \item No need for CI/CD
-    \item ...Does the job done!!!
+    \item It can read "srvconfig.toml".
+    \item on any request regardless of input it returns content of servconfig.toml
 \end{enumerate}
-\subsubsection{Problems?}
-Well it's gonna work simply as a console application, nothing shiny about it - we code and debug and as we debug we us the app. Stupid simple. 
-\newpage
+
 
 %\setcounter{section}{0}
 
