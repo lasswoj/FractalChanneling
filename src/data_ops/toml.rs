@@ -1,4 +1,9 @@
 /*
+ * Copyright (c) 2021 Authors <https://github.com/lasswoj/FractalChanneling/blob/main/Authors.md>
+ * 
+ * Created Date: Tuesday, October 5th 2021, 10:35:54 pm
+ * Author: Authors
+ * 
  *  Copyright (C) 1991, 1992, 1993 Free Software Foundation, Inc.
  * 
  * This library is free software; you can redistribute it and/or
@@ -17,3 +22,32 @@
  * Modified by the Fractal Team and others 2021.  See the Authors.md
  * file for a list of people on the Fractal Team.
  */
+use serde::Deserialize;
+
+#[derive(Deserialize)]
+struct Config {
+    ip: String,
+    port: Option<u16>,
+    keys: Keys,
+}
+
+#[derive(Deserialize)]
+struct Keys {
+    github: String,
+    travis: Option<String>,
+}
+
+fn main() {
+    let config: Config = toml::from_str(r#"
+        ip = '127.0.0.1'
+
+        [keys]
+        github = 'xxxxxxxxxxxxxxxxx'
+        travis = 'yyyyyyyyyyyyyyyyy'
+    "#).unwrap();
+
+    assert_eq!(config.ip, "127.0.0.1");
+    assert_eq!(config.port, None);
+    assert_eq!(config.keys.github, "xxxxxxxxxxxxxxxxx");
+    assert_eq!(config.keys.travis.as_ref().unwrap(), "yyyyyyyyyyyyyyyyy");
+}

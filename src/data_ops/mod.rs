@@ -1,4 +1,9 @@
 /*
+ * Copyright (c) 2021 Authors <https://github.com/lasswoj/FractalChanneling/blob/main/Authors.md>
+ * 
+ * Created Date: Tuesday, October 5th 2021, 10:36:01 pm
+ * Author: Authors
+ * 
  *  Copyright (C) 1991, 1992, 1993 Free Software Foundation, Inc.
  * 
  * This library is free software; you can redistribute it and/or
@@ -17,3 +22,4 @@
  * Modified by the Fractal Team and others 2021.  See the Authors.md
  * file for a list of people on the Fractal Team.
  */
+pub mod toml;

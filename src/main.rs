@@ -1,8 +1,10 @@
 use std::collections::HashMap;
 use std::str::FromStr;
 use serde_json::{Value};
+// use confy::{Serialize, Deserialize};
 use std::{fs, string};
 
+mod data_ops;
 mod interface;
 use interface::cmdl::CMDActions;
 use interface::base::ActionsTr;
@@ -71,18 +73,30 @@ impl Todo {
         Ok(Todo { map })
     }
 }
+
+
+
+
+
+
+
 fn run_app() -> Result<(), ()> {
     let action = CMDActions::get_action();
     Ok(())
 }
+
 fn main() {
-    std::process::exit(match run_app() {
-        Ok(_) => 0,
-        Err(err) => {
-            eprintln!("error: {:?}", err);
-            1
-        }
-    });
+
+    // std::process::exit(match run_app() {
+    //     Ok(_) => 0,
+    //     Err(err) => {
+    //         eprintln!("error: {:?}", err);
+    //         1
+    //     }
+    // });
+
+
+
     // let go = Actions::from_str(&*std::env::args().nth(1).unwrap()).unwrap();
     // read_action_input();
 

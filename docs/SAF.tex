@@ -1,0 +1,40 @@
+
+\input{prefix/main.tex}
+\title{\myfont{Fractal Channeling}\\  \huge or how to empower masses\\to add great value to the world\\in a nick of time}
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents  
+\newpage
+\listoftables
+\newpage
+\listoffigures
+
+%\renewcommand{\theparagraph}{\S\arabic{paragraph}}
+\setcounter{secnumdepth}{4}
+
+\newcounter{ct}
+\newcounter{subc}
+
+\ExplSyntaxOn
+\cs_new_eq:NN \Repeat \prg_replicate:nn
+\ExplSyntaxOff
+
+
+%\setcounter{section}{0}
+\newpage
+\part{Fractal channeling - System elements}
+\input{modules/system.tex}
+\part{Fractal flow} 
+\input{modules/flow.tex}
+
+
+% \begin{lstlisting}[language=json,firstnumber=1]
+% \input{go.json}
+% \end{lstlisting}
+
+
+\newpage
+\bibliographystyle{unsrt}
+\bibliography{sample}
+\end{document}

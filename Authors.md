@@ -1,1 +1,1 @@
-
+Wojciech Lassmnann - neurobotyk@gmail.com
