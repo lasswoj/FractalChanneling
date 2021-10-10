@@ -1,6 +1,17 @@
 using dockerised version makes it easy
 docker pull miktex/miktex
 
+build(){
+      docker run --rm -ti \
+        -v miktex:/miktex/.miktex \
+        -v $(pwd):/miktex/work \
+        -e MIKTEX_GID=$(id -g) \
+        -e MIKTEX_UID=$(id -u) \
+        miktex/miktex \
+        pdflatex ${file}; bibtex ${file}; pdflatex ${file}; pdflatex ${file};
+}
+
+
 if [ -z "$1" ] 
 then 
   echo "Currently avalible files:"
@@ -10,31 +21,14 @@ then
   then
     for name in *.tex
       do  file=$name; 
-      docker run --rm -ti \
-        -v miktex:/miktex/.miktex \
-        -v $(pwd):/miktex/work \
-        -e MIKTEX_GID=$(id -g) \
-        -e MIKTEX_UID=$(id -u) \
-        miktex/miktex \
-        pdflatex ${file}; bibtex ${file}; pdflatex ${file}; pdflatex ${file};
+      build
     done
   else
-    docker run --rm -ti \
-    -v miktex:/miktex/.miktex \
-    -v $(pwd):/miktex/work \
-    -e MIKTEX_GID=$(id -g) \
-    -e MIKTEX_UID=$(id -u) \
-    miktex/miktex \
-    pdflatex ${file}; bibtex ${file}; pdflatex ${file}; pdflatex ${file};
+      build file
   fi
 else
-  docker run --rm -ti \
-    -v miktex:/miktex/.miktex \
-    -v $(pwd):/miktex/work \
-    -e MIKTEX_GID=$(id -g) \
-    -e MIKTEX_UID=$(id -u) \
-    miktex/miktex \
-    pdflatex ${1}; bibtex ${1}; pdflatex ${1}; pdflatex ${1};
+  file=$1
+  build file
 fi
 for ex in aux bbl blg fls lof log lot out toc synctex.gz fdb_latexmk
 do 
