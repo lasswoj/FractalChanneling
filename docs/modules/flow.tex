@@ -42,36 +42,41 @@ Flows consist of 3 parts:
     \item status {in place, in progress, dried}
   \end{itemize}
 \end{itemize}
-\subsection{Critical flows}
-There are 3 distinctive types of flows within this management that needs to take place for the organization to exist:
-\subsubsection{Green flows}\label{philo:green:flow}
+% There are 3 distinctive types of flows within this management that needs to take place for the organization to exist:
+
+\subsection{White flows}\label{philo:white:flow}
+White flows are depiction of the newcommer onboarding process. 
+\subsection{Gray flows}\label{philo:gray:flow}
+CI/CD
+\subsection{Yellow flows}\label{philo:Yellow:flow}
+Testing -> Kaue
+\subsection{Green flows}\label{philo:green:flow}
 Green flow is the description of the flow that we need, in order for the application, to run propperly. 
 \begin{itemize}
   \item Action item depicts the functionality 
   \item Flow steps explain the implementation
 \end{itemize}
-\subsubsection{Red flows}\label{philo:red:flow}
+\subsection{Red flows}\label{philo:red:flow}
 Red flow is the description of the incidents that we want to avoid and the steps we need to do in order for them not to occur. It may or may not be paired with brown flow.
 \begin{itemize}
   \item Action item depicts the problem 
   \item Flow steps contains reference to green flow steps that implements safety precautions
 \end{itemize}
-\subsubsection{Brown flows}\label{philo:brown:flow}
+\subsection{Brown flows}\label{philo:brown:flow}
 Brown flow is the description of how to tackle an incident that allready happened (how to channel the brown flow to avoid further damage). It should allways be paired with red flow.
 \begin{itemize}
   \item Action item depicts the problem 
   \item Flow steps explain the way to deal with the problem
 \end{itemize}
 If \nameref{philo:red:flow} of the coresponding action item is fully implemented and guarantees that the problem will never occur this brown flow gets dried.
-\subsection{Fractal flows}
-There are 2 flows that needs to take place for the organization to grow in fractal way
-\subsubsection{Blue flows}\label{philo:blue:flow}
+
+\subsection{Blue flows}\label{philo:blue:flow}
 Blue flows are the ideas for the new functionalities and description how they should be implemented
 \begin{itemize}
   \item Action item depicts the new feature suggestion 
   \item Flow steps explain the way to implement solution
 \end{itemize}
-\subsubsection{Indigo flows}\label{philo:indigo:flow}
+\subsection{Indigo flows}\label{philo:indigo:flow}
 Indigo flows are current ideas for the impementation change and description in what way would it benefit company
 \begin{itemize}
   \item Action item depicts the implementation change suggestion 
@@ -85,7 +90,6 @@ Indigo flows are current ideas for the impementation change and description in w
   \item The Red flow can be paired with brown flow but in ideal scenario it drains it (better to avoid problem than to deal with it)
   \item The Green flows consists of both the current state, and approved modifications that are on its way to be implemented
   \item Unimplemented Red, Green, and Brown flows have "Pale" colour specifier prefix.
-  \item 
   \item The Blue and indigo are suggestions that did not yet got approval
   \item Blue flow is downstream - corresponds to buissness side suggestions which should have major impact on generating value to stakeholders while the implementation estimations might not reflect the actual state.
   \item Indigo flow is upstream - corresponds to implementation side suggestion which may not have major impact on generating value to stakeholders but the implementation process is well understood.
@@ -137,7 +141,3 @@ Managers/team
 \subsubsection{What are the children}
 Depending on project size and structure there might need to be more levels (submodules, subsubmodules), but they can work simply in recursive manner.
 
-
-
-\newpage
-%\setcounter{section}{0}
