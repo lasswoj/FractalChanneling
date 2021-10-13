@@ -7,4 +7,4 @@ edition = "2018"
 
 [dependencies]
 [target.'cfg(unix)'.dependencies]
-read_files = {path="src/data_ops/read_files"}
+access_files = {path="src/data_ops/access_files"}
