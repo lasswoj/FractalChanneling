@@ -9,12 +9,14 @@ mod tests {
     use super::*;
     #[test]
     fn toml_works() {
-
-        let conf = Config::from_str(r#"
+        let conf = Config::from_str(
+            r#"
             [profile]
             name = 'xxxxxxxxxxxxxxxxx'
             password = 'yyyyyyyyyyyyyyyyy'
-        "#).unwrap();
+        "#,
+        )
+        .unwrap();
         assert_eq!(conf.profile.as_ref().unwrap().name, "xxxxxxxxxxxxxxxxx");
         assert_eq!(conf.profile.as_ref().unwrap().password, "yyyyyyyyyyyyyyyyy");
     }
@@ -26,7 +28,8 @@ mod tests {
     }
     #[test]
     fn json_works() {
-        let v: Ticket = Ticket::from_str(r#"
+        let v: Ticket = Ticket::from_str(
+            r#"
         {
             "primary_key": 10,
             "unique_name": "json_reader",
@@ -42,12 +45,15 @@ mod tests {
             "blocked_by": [],
             "status":"pending",
             "priority": "high"
-        }"#).unwrap();
+        }"#,
+        )
+        .unwrap();
         assert_eq!(v.primary_key, 10);
     }
     #[test]
     fn json_list_works() {
-        let v  = Ticket::from_list_str(r#"
+        let v = Ticket::from_list_str(
+            r#"
         [
             {
               "primary_key": 10,
@@ -80,7 +86,9 @@ mod tests {
               "blocked_by": [],
               "status":"pending",
               "priority": "low"
-            }]"#).unwrap();
+            }]"#,
+        )
+        .unwrap();
         assert_eq!(v[0].primary_key, 10);
     }
     #[test]
