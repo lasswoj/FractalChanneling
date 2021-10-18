@@ -9,7 +9,7 @@ mod tests {
     use super::*;
     #[test]
     fn toml_works() {
-
+        
         let conf = Config::from_str(r#"
             [profile]
             name = 'xxxxxxxxxxxxxxxxx'
