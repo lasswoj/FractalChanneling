@@ -1,4 +1,14 @@
 /target
+src/data_ops/access_files/target/
 .vscode/launch.json
-docs/MasTODOnt.*
-!docs/MasTODOnt.tex
+.vscode/settings.json
+!docs/flow.tex
+.vscode/flow.json
+resources/db1.json
+docs/System.*
+!docs/System.tex
+docs/FullDoc.*
+!docs/FullDoc.tex
+docs/SAF.*
+!docs/SAF.tex
+cfg.toml

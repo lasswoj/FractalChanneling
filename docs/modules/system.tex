@@ -1,0 +1,108 @@
+
+\section{Green flows}
+\subsection{CRUD operations}\label{GF:CRUD}
+User can perform typical crud and allso move and list operations.
+\subsubsection{Log in}\label{GF:CRUD:LOGIN}
+By the \nameref{AUTH:POC} user logs in \\
+tickets - \nameref{TICKETS:GF:LOGIN}
+\subsubsection{Add}\label{GF:CRUD:ADD}
+By \nameref{UI:POC} user can add ticket based on \nameref{MODEL:POC} 
+to a currently selected node. Added tickets go through \nameref{SRV:POC} and land in \nameref{DB:POC}\\
+tickets - \nameref{TICKETS:GF:ADD}
+\subsubsection{Read}\label{GF:CRUD:READ}
+By \nameref{UI:POC} user can read tickets. It is cashed operation so no need for server call.\\
+tickets - \nameref{TICKETS:GF:READ}
+\subsubsection{Update}\label{GF:CRUD:UP}
+By \nameref{UI:POC} user can update ticket based on \nameref{MODEL:POC} 
+to a currently selected node. Updated tickets go through \nameref{SRV:POC} and replace existing ones in \nameref{DB:POC}\\
+tickets - \nameref{TICKETS:GF:UP}
+\subsubsection{DELETE}\label{GF:CRUD:DEL}
+By \nameref{UI:POC} user can remove tickets. Removed tickets go through server mentioned 
+in \nameref{SRV:POC} and land in database mentioned in \ref{DB:POC} in a form of a visibility 
+hiding flag. After x time they are replaced for good.\\
+tickets - \nameref{TICKETS:GF:DEL}
+\subsubsection{Move}\label{GF:CRUD:MOV}
+By \nameref{UI:POC} user can navigate through nodes within \nameref{MODEL:POC}\\
+tickets - \nameref{TICKETS:GF:MOV}
+\subsubsection{List}\label{GF:CRUD:LIST}
+By \nameref{UI:POC} user can list tickets from current node. This list is cashed so no 
+need for server calls.\\
+tickets - \nameref{TICKETS:GF:LIST}
+
+\newpage
+\section{System description}
+\subsection{User interfaces}\label{UI:POC}
+
+\subsubsection{CLI}
+discord discussions:\\
+\href{https://discord.com/channels/892473074434310144/896321419498098689}{initial discussion}\\
+Most important features
+\begin{enumerate}
+    \item allows to interact with system using instructions from command line
+    \item enables \nameref{GF:CRUD}
+\end{enumerate}
+
+\subsection{User authorisation and config}\label{AUTH:POC}\label{CONFIG:POC}
+discord discussions:
+\begin{itemize}
+    \item \href{https://discord.com/channels/892473074434310144/896357478600671272}{initial discussion- authorization}
+    \item \href{https://discord.com/channels/892473074434310144/896360600542789642}{initial discussion- config}
+\end{itemize}
+Username and password is stroed in apopreate form in local gitignored configuration Toml file. 
+Program reads this file in the beginnig of the project. 
+\subsection{Database}\label{DB:POC}
+\subsubsection{local Json}
+Gitignored Json synced by dropbox with symbolic link in ./resources/db1.json.\\
+how to setup(\href{https://discord.com/channels/892473074434310144/895768675146154004/895772874613346354}{discord discussion}):
+\begin{enumerate}
+    \item Send mail to Wojtek (i will share folder "sync")
+    \item Get dropbox
+    \item Get dropbox local folder
+    \item Check if you have the shared folder "synced" with db.json in it
+    \item In "resources" project folder create symbolic link (shortcut) with name "db1.json" pointing to it.
+    \item Drink
+\end{enumerate}
+
+\href{https://discord.com/channels/892473074434310144/892481179624824843}{initial discussion}
+
+\subsection{Data models}\label{MODEL:POC}
+\subsubsection{Kanban ticket}
+Ticket structure
+\begin{itemize}
+  \item primary\_key        [int]
+  \item unique\_name        [String]
+  \item description         [String]
+  \item story\_points       [int]
+  \item parent\_ticket      [OPTIONAL(int)]
+  \item child\_tickets      [OPTIONAL(list(int))]
+  \item reporter            [String]
+  \item asignee             [String]
+  \item affected\_modules   [list(String)]
+  \item affected\_steps     [list(String)]
+  \item relevant\_changes   [list(String)]
+  \item continued\_in       [OPTIONAL(int)]
+  \item status              [String]
+\end{itemize}
+\href{https://discord.com/channels/892473074434310144/892483718495731753}{initial discussion}
+
+\subsection{Server}\label{SRV:POC}
+\subsubsection{Local Machine}
+It is a separated program running on localhost. \\
+\href{https://discord.com/channels/892473074434310144/896382199736172564}{initial discussion}\\
+Most important features
+\begin{enumerate}
+    \item It can read "srvconfig.toml".
+    \item on any request regardless of input it returns content of servconfig.toml
+\end{enumerate}
+
+
+%\setcounter{section}{0}
+
+\section{Tickets listings}
+\labelText{\href{run:../resources/db1.json}{GF::CRUD::\nameref*{GF:CRUD:LOGIN}}}{TICKETS:GF:LOGIN}\\
+\labelText{\href{run:../resources/db1.json}{GF::CRUD::\nameref*{GF:CRUD:ADD}}}{TICKETS:GF:ADD}\\
+\labelText{\href{run:../resources/db1.json}{GF::CRUD::\nameref*{GF:CRUD:READ}}}{TICKETS:GF:READ}\\
+\labelText{\href{run:../resources/db1.json}{GF::CRUD::\nameref*{GF:CRUD:UP}}}{TICKETS:GF:UP}\\
+\labelText{\href{run:../resources/db1.json}{GF::CRUD::\nameref*{GF:CRUD:DEL}}}{TICKETS:GF:DEL}\\
+\labelText{\href{run:../resources/db1.json}{GF::CRUD::\nameref*{GF:CRUD:MOV}}}{TICKETS:GF:MOV}\\
+\labelText{\href{run:../resources/db1.json}{GF::CRUD::\nameref*{GF:CRUD:LIST}}}{TICKETS:GF:LIST}\\

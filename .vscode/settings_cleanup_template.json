@@ -1,0 +1,27 @@
+{
+    "files.exclude": {
+        "**/*.aux": true,
+        "**/*.bbl": true,
+        "**/*.blg": true,
+        "**/*.fls": true,
+        "**/*.lof": true,
+        "**/*.log": true,
+        "**/*.lot": true,
+        "**/*.out": true,
+        "**/*.toc": true,
+        "**/*.synctex.gz": true,
+        "**/*.fdb_latexmk": true
+    },
+    "psi-header.templates": [
+        {
+            "language": "*",
+            "template": [
+            ]
+        }
+    ],
+	"psi-header.variables": [
+		["company", "Fractal Team"],
+		["author", "Authors"],
+        ["url", "<https://github.com/lasswoj/FractalChanneling/blob/main/Authors.md>"]
+	]
+}
