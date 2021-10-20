@@ -1,11 +1,10 @@
-use serde_json::{Error};
-use serde::{Deserialize};
+use serde::Deserialize;
+use serde_json::Error;
 use std::fs;
 use std::str::FromStr;
 
-
 #[derive(Deserialize, Debug)]
-pub struct Ticket{
+pub struct Ticket {
     pub primary_key: i32,
     pub unique_name: String,
     pub description: String,
@@ -27,9 +26,8 @@ impl FromStr for Ticket {
     }
 }
 
-
-impl Ticket{
-    pub fn from_list_file(filename: &str)-> Result<Vec<Self>, Error>{
+impl Ticket {
+    pub fn from_list_file(filename: &str) -> Result<Vec<Self>, Error> {
         let data = fs::read_to_string(filename).expect("Unable to read file");
         let ret = Ticket::from_list_str(&*data);
         return ret;

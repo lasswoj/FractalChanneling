@@ -1,4 +1,3 @@
-
 use serde::Deserialize;
 use std::fs;
 use std::str::FromStr;
@@ -23,15 +22,12 @@ impl FromStr for Config {
     fn from_str(input: &str) -> Result<Self, ParseError> {
         return toml::from_str(input);
     }
-
 }
 
-
-impl Config{
-    pub fn from_file(filename: &str)-> Result<Self, ParseError>{
+impl Config {
+    pub fn from_file(filename: &str) -> Result<Self, ParseError> {
         let data = fs::read_to_string(filename).expect("Unable to read file");
         let ret = Config::from_str(&*data);
         return ret;
     }
 }
-
