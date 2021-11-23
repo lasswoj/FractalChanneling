@@ -1,4 +1,4 @@
-using dockerised version makes it easy
+# using dockerised version makes it easy
 docker pull miktex/miktex
 
 build(){

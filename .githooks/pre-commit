@@ -1,0 +1,8 @@
+#!/bin/bash
+REGEX="^(main|([0-9]+-[a-zA-Z0-9-]+))$"
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if ! [[ $BRANCH =~ $REGEX ]]; then
+  echo "Your commit was rejected due to failed branch name check (your branch name is: '$BRANCH')"
+  echo "Please rename your branch with syntax (<ticketnumber>-<human friendly name separated with '-'>)"
+  exit 1
+fi
